@@ -107,6 +107,21 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
 
 @media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}nav{padding:0 1.2rem}}
 @media(max-width:600px){.post{padding:100px 1.2rem 3rem}.post-h1{font-size:2rem}}
+
+.share-bar{background:var(--cream);border:1px solid var(--cream-dark);border-radius:3px;padding:.8rem 1.2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:0 0 2.4rem}
+.share-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);font-weight:400}
+.share-btns{display:flex;gap:.5rem;flex-wrap:wrap}
+.share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:7px 14px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;text-decoration:none;border-radius:2px;transition:all .2s;cursor:pointer;border:none;font-family:var(--sans)}
+.share-wa{background:#25D366;color:#fff}
+.share-wa:hover{background:#1da851}
+.share-li{background:#0077B5;color:#fff}
+.share-li:hover{background:#005f8e}
+.share-fb{background:#1877F2;color:#fff}
+.share-fb:hover{background:#1260cc}
+.share-copy{background:var(--navy);color:var(--gold)}
+.share-copy:hover{background:var(--navy-mid)}
+.copy-success{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--navy);border:1px solid var(--gold);color:var(--gold-light);padding:.7rem 1.5rem;font-size:.78rem;border-radius:2px;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.copy-success.show{opacity:1}
 </style>
 </head>
 <body>
@@ -144,6 +159,15 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
     <span class="post-eyebrow">Prisión preventiva y medidas cautelares</span>
     <h1 class="post-h1">Lo que debe saber si hay una orden de aprehensión en su contra</h1>
     <p class="post-meta">Julio 2026 <span class="dot">·</span> Ulises Flores Luna <span class="dot">·</span> 7 min de lectura</p>
+    <div class="share-bar">
+      <span class="share-label">Compartir:</span>
+      <div class="share-btns">
+        <a class="share-btn share-wa" href="https://wa.me/?text=Te%20comparto%20este%20artículo%20sobre%20qué%20hacer%20si%20hay%20una%20orden%20de%20aprehensión%20en%20tu%20contra%3A%20https%3A%2F%2Ffloresrodriguezyasociados.com%2Fblog%2Forden-de-aprehension-proceso-en-libertad%2F" target="_blank">📱 WhatsApp</a>
+        <a class="share-btn share-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ffloresrodriguezyasociados.com%2Fblog%2Forden-de-aprehension-proceso-en-libertad%2F" target="_blank">💼 LinkedIn</a>
+        <a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffloresrodriguezyasociados.com%2Fblog%2Forden-de-aprehension-proceso-en-libertad%2F" target="_blank">👥 Facebook</a>
+        <button class="share-btn share-copy" onclick="copyLink()">🔗 Copiar link</button>
+      </div>
+    </div>
 
     <div class="post-lead">
       <p>Durante doce años trabajé en el Poder Judicial de la Federación y llegué a ser Juez de Distrito en materia penal. Desde ese lugar, el de quien resuelve, vi de cerca algo que quiero explicarle con calma.</p>
@@ -234,6 +258,7 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
   <div class="foot-copy">© 2026 Flores Rodríguez y Asociados. Todos los derechos reservados.</div>
 </footer>
 
+<div class="copy-success" id="copySuccess">✓ Link copiado al portapapeles</div>
 <div class="wa-float">
   <div class="wa-tip">Consulta por WhatsApp</div>
   <a href="https://wa.me/529982241188?text=Hola,%20me%20interesa%20agendar%20una%20consulta%20jurídica." target="_blank" class="wa-btn" aria-label="WhatsApp">
@@ -248,6 +273,14 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
 })();
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
 window.addEventListener('scroll',()=>{document.getElementById('navbar').style.height=window.scrollY>60?'60px':'70px';});
+
+function copyLink(){
+  navigator.clipboard.writeText('https://floresrodriguezyasociados.com/blog/orden-de-aprehension-proceso-en-libertad/').then(function(){
+    var el=document.getElementById('copySuccess');
+    el.classList.add('show');
+    setTimeout(function(){el.classList.remove('show')},2500);
+  });
+}
 </script>
 </body>
 </html>
