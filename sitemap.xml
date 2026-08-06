@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://floresrodriguezyasociados.com/</loc>
-    <lastmod>2025-09-01</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://floresrodriguezyasociados.com/#blog</loc>
-    <lastmod>2025-09-01</lastmod>
+    <lastmod>2026-08-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -36,10 +36,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-<url>
-  <loc>https://floresrodriguezyasociados.com/blog/orden-de-aprehension-proceso-en-libertad/</loc>
-  <lastmod>2026-07-28</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.9</priority>
-</url>
+  <url>
+    <loc>https://floresrodriguezyasociados.com/blog/delito-de-despojo/</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://floresrodriguezyasociados.com/blog/orden-de-aprehension-proceso-en-libertad/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://floresrodriguezyasociados.com/blog/derecho-a-defensa-adecuada/</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
