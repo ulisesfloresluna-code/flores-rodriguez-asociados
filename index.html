@@ -10,6 +10,9 @@
   gtag('config', 'G-40E0QCSB8F');
 </script>
 <meta charset="UTF-8">
+<link rel="alternate" hreflang="es" href="https://floresrodriguezyasociados.com/" />
+<link rel="alternate" hreflang="en" href="https://floresrodriguezyasociados.com/en/" />
+<link rel="alternate" hreflang="x-default" href="https://floresrodriguezyasociados.com/" />
 <link rel="canonical" href="https://floresrodriguezyasociados.com/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flores Rodríguez y Asociados | Despacho Jurídico — Mérida, Yucatán</title>
@@ -279,8 +282,8 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
 .modal-body p{font-size:.85rem;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:.8rem}
 
 /* COOKIE BANNER */
-.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(201,168,76,.2);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;z-index:1500;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease}
-.cookie-banner.show{transform:translateY(0)}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:var(--navy);border-top:1px solid rgba(201,168,76,.2);padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;z-index:9999;flex-wrap:wrap;transform:translateY(100%);transition:transform .4s ease,visibility .4s;visibility:hidden}
+.cookie-banner.show{transform:translateY(0);visibility:visible}
 .cookie-text{font-size:.8rem;color:rgba(255,255,255,.7);font-weight:300;line-height:1.5;flex:1}
 .cookie-text a{color:var(--gold);text-decoration:none}
 .cookie-text a:hover{text-decoration:underline}
@@ -289,6 +292,17 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
 .cookie-accept:hover{background:var(--gold-light)}
 .cookie-decline{background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.2);padding:9px 20px;font-family:var(--sans);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;font-weight:400;cursor:pointer;transition:all .2s}
 .cookie-decline:hover{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.7)}
+
+/* LANGUAGE SWITCHER */
+.lang-switch{display:flex;align-items:center;gap:0;margin-left:.5rem}
+.lang-switch a{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:6px 10px;transition:all .2s;font-weight:400}
+.lang-switch a.active{color:var(--gold-light);font-weight:500}
+.lang-switch a:not(.active){color:rgba(255,255,255,.4)}
+.lang-switch a:not(.active):hover{color:var(--gold-light)}
+.lang-switch .lang-sep{color:rgba(255,255,255,.2);font-size:.65rem;padding:0 2px}
+.mobile-menu .lang-switch{margin:1rem 0 0;padding-top:1rem;border-top:1px solid rgba(255,255,255,.08);justify-content:center}
+.mobile-menu .lang-switch a{display:inline;border:none;padding:6px 12px}
+
 </style>
 </head>
 <body>
@@ -309,6 +323,11 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
     <li><a href="#publicaciones">Publicaciones</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#contacto" class="nav-cta">Consulta</a></li>
+    <li class="lang-switch" aria-label="Idioma">
+      <a href="./" class="active" hreflang="es" lang="es">ES</a>
+      <span class="lang-sep">|</span>
+      <a href="en/" hreflang="en" lang="en">EN</a>
+    </li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menú">
     <span></span><span></span><span></span>
@@ -321,6 +340,11 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
   <a href="#publicaciones" onclick="toggleMenu()">Publicaciones</a>
   <a href="#blog" onclick="toggleMenu()">Blog</a>
   <a href="#contacto" onclick="toggleMenu()">Agendar Consulta</a>
+  <div class="lang-switch" aria-label="Idioma">
+    <a href="./" class="active" hreflang="es">ES</a>
+    <span class="lang-sep">|</span>
+    <a href="en/" hreflang="en">EN</a>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -867,7 +891,7 @@ footer{background:#060f1a;padding:3rem 2rem 2rem;text-align:center}
 </div>
 
 <!-- COOKIE BANNER -->
-<div class="cookie-banner" id="cookieBanner">
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite" aria-hidden="true">
   <p class="cookie-text">Utilizamos cookies para mejorar su experiencia y analizar el tráfico de nuestro sitio mediante Google Analytics. Al continuar navegando, acepta su uso. <a href="#" onclick="openPrivacy();return false;">Política de Privacidad</a></p>
   <div class="cookie-btns">
     <button class="cookie-decline" onclick="declineCookies()">Rechazar</button>
@@ -957,13 +981,32 @@ function closePrivacy(){document.getElementById('privacyModal').classList.remove
 document.getElementById('privacyModal').addEventListener('click',function(e){if(e.target===this)closePrivacy()});
 
 // Cookie Banner
-function acceptCookies(){localStorage.setItem('cookies','accepted');document.getElementById('cookieBanner').classList.remove('show')}
-function declineCookies(){localStorage.setItem('cookies','declined');document.getElementById('cookieBanner').classList.remove('show')}
-window.addEventListener('load',function(){
-  if(!localStorage.getItem('cookies')){
-    setTimeout(function(){document.getElementById('cookieBanner').classList.add('show')},1500);
+// Cookie Banner
+function acceptCookies(){
+  try{localStorage.setItem('cookies','accepted');}catch(e){}
+  var b=document.getElementById('cookieBanner');
+  if(b){b.classList.remove('show');b.setAttribute('aria-hidden','true');}
+}
+function declineCookies(){
+  try{localStorage.setItem('cookies','declined');}catch(e){}
+  var b=document.getElementById('cookieBanner');
+  if(b){b.classList.remove('show');b.setAttribute('aria-hidden','true');}
+}
+function showCookieBanner(){
+  var b=document.getElementById('cookieBanner');
+  if(!b) return;
+  var stored=null;
+  try{stored=localStorage.getItem('cookies');}catch(e){}
+  if(!stored){
+    setTimeout(function(){b.classList.add('show');b.setAttribute('aria-hidden','false');},800);
   }
-});
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',showCookieBanner);
+}else{
+  showCookieBanner();
+}
+window.addEventListener('load',showCookieBanner);
 
 // Smooth scroll for all anchors
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
