@@ -8,7 +8,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://floresrodriguezyasociados.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://floresrodriguezyasociados.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://floresrodriguezyasociados.com/"/>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -19,12 +19,18 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://floresrodriguezyasociados.com/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://floresrodriguezyasociados.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://floresrodriguezyasociados.com/"/>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <!-- Blog articles -->
+  <url>
+    <loc>https://floresrodriguezyasociados.com/blog/estandar-de-valoracion-vinculacion-a-proceso/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://floresrodriguezyasociados.com/blog/delito-de-despojo/</loc>
     <lastmod>2026-08-05</lastmod>
